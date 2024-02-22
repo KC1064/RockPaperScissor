@@ -12,19 +12,21 @@ const gencompChoice = () => {
     return choices[randomNumber];
 };
 
+const result = document.getElementById("remark-para");
+
 const showWinner = (userWin) => {
     if (userWin) {
-        score_user.textContent = userScore++;
-        //score_user.innerHTML += "<span class='green'>You Win!</span>";
+        score_user.textContent = ++userScore;
+        result.textContent = "You Win";
     } else {
-        score_comp.textContent= compScore++;
-       // score_comp.innerHTML += "<span class='red'>Comp Wins!</span>";
+        score_comp.textContent= ++compScore;
+        result.textContent = "Computer Win";
     }
 };
 
 const playGame = (userChoice) => {
     const compChoice = gencompChoice();
-    let userWin = false;  // Initialize userWin to false by default
+    let userWin = false; 
 
     if (userChoice === compChoice) {
         console.log("It's a draw");
